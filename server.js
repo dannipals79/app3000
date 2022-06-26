@@ -9,6 +9,9 @@ const app = express()
 
 const database = require('./database')
 
+app.use(express.static('build'))
+
+
 app.get('/images/:filename', (req, res) => {
     const filename = req.params.filename
     const readStream = fs.createReadStream(path.join(__dirname, 'uploads', filename))
